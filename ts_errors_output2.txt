@@ -1,0 +1,44 @@
+app/api/auth/register/route.ts(62,8): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "users", never, "POST">', gave the following error.
+    Argument of type '{ id: string; email: any; full_name: any; role: any; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "users", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'id' does not exist in type 'never[]'.
+app/api/engineers/search/route.ts(45,7): error TS2345: Argument of type '{ p_specialization: string[] | null; p_province: string | null; p_city: string | null; p_min_experience: number | null; p_min_rate: number | null; p_max_rate: number | null; p_prc_verified: boolean | null; p_sort: string; p_limit: number; p_offset: number; }' is not assignable to parameter of type 'undefined'.
+app/api/engineers/search/route.ts(66,32): error TS2339: Property 'length' does not exist on type 'never'.
+app/api/engineers/search/route.ts(67,38): error TS2339: Property 'map' does not exist on type 'never'.
+app/api/engineers/search/route.ts(69,27): error TS7006: Parameter 'id' implicitly has an 'any' type.
+app/api/engineers/search/route.ts(69,73): error TS2345: Argument of type '{ profile_id: any; }' is not assignable to parameter of type 'undefined'.
+app/api/jobs/[id]/route.ts(23,41): error TS2345: Argument of type '{ p_job_id: string; }' is not assignable to parameter of type 'undefined'.
+app/api/jobs/[id]/route.ts(23,62): error TS2551: Property 'catch' does not exist on type 'PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, never, never, never, "RPC">'. Did you mean 'match'?
+app/api/jobs/[id]/route.ts(23,69): error TS7006: Parameter 'err' implicitly has an 'any' type.
+app/api/jobs/[id]/route.ts(51,19): error TS2339: Property 'client_id' does not exist on type 'never'.
+app/api/jobs/[id]/route.ts(57,16): error TS2345: Argument of type 'any' is not assignable to parameter of type 'never'.
+app/api/jobs/[id]/route.ts(85,19): error TS2339: Property 'client_id' does not exist on type 'never'.
+app/api/jobs/route.ts(99,21): error TS2339: Property 'role' does not exist on type 'never'.
+app/api/jobs/route.ts(128,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "job_posts", never, "POST">', gave the following error.
+    Argument of type '{ client_id: string; title: any; description: any; project_type: any[]; discipline: any[]; work_type: any[]; province: any; city: any; budget_min: number | null; budget_max: number | null; target_date: any; deadline: any; duration: any; status: string; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "job_posts", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'client_id' does not exist in type 'never[]'.
+app/api/messages/route.ts(45,18): error TS2345: Argument of type '{ is_read: boolean; }' is not assignable to parameter of type 'never'.
+app/api/messages/route.ts(104,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "messages", never, "POST">', gave the following error.
+    Argument of type '{ sender_id: string; receiver_id: any; content: string; job_id: any; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "messages", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'sender_id' does not exist in type 'never[]'.
+app/api/reviews/route.ts(68,13): error TS2339: Property 'status' does not exist on type 'never'.
+app/api/reviews/route.ts(86,40): error TS2339: Property 'engineer_id' does not exist on type 'never'.
+app/api/reviews/route.ts(98,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "reviews", never, "POST">', gave the following error.
+    Argument of type '{ reviewer_id: string; reviewee_id: any; job_id: any; rating: any; comment: any; tags: any; rating_communication: any; rating_professionalism: any; rating_quality: any; rating_timeliness: any; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "reviews", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'reviewer_id' does not exist in type 'never[]'.
+app/api/upload/route.ts(116,44): error TS2345: Argument of type '{ avatar_url: string; }' is not assignable to parameter of type 'never'.
+app/api/upload/route.ts(120,19): error TS2345: Argument of type '{ prc_doc_url: string; prc_verified: boolean; prc_verified_at: null; }' is not assignable to parameter of type 'never'.
+app/api/upload/route.ts(129,47): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(values: never, options?: { count?: "exact" | "planned" | "estimated" | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "job_attachments", never, "POST">', gave the following error.
+    Argument of type '{ job_id: string | null; file_url: string; file_name: string; file_type: string; }' is not assignable to parameter of type 'never'.
+  Overload 2 of 2, '(values: never[], options?: { count?: "exact" | "planned" | "estimated" | undefined; defaultToNull?: boolean | undefined; } | undefined): PostgrestFilterBuilder<{ PostgrestVersion: "12"; }, never, never, null, "job_attachments", never, "POST">', gave the following error.
+    Object literal may only specify known properties, and 'job_id' does not exist in type 'never[]'.
+components/auth/AuthForm.tsx(112,23): error TS2339: Property 'role' does not exist on type 'never'.
+middleware.ts(58,21): error TS2339: Property 'role' does not exist on type 'never'.

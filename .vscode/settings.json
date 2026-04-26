@@ -1,0 +1,5 @@
+{
+  "css.lint.unknownAtRules": "ignore",
+  "css.lint.unknownVendorSpecificProperties": "ignore",
+  "css.lint.validProperties": ["-webkit-line-clamp", "-webkit-box-orient"]
+}
