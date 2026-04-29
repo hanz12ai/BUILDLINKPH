@@ -221,8 +221,10 @@ export default function AuthForm({ defaultTab = 'login' }: AuthFormProps) {
         <div className="p-8">
           <div className="text-center mb-8">
             <Link href="/">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-indigo-950 rounded-xl shadow-sm mb-4 cursor-pointer hover:scale-105 transition-transform">
-                <span className="text-2xl font-bold font-serif text-blue-500">BS</span>
+              <div className="inline-flex items-center justify-center mb-4 cursor-pointer hover:scale-105 transition-transform">
+                <div className="bg-white rounded-full p-0.5 shadow-sm border border-slate-100">
+                  <img src="/logo.jpg" alt="BuildLinkPH Logo" className="w-12 h-12 object-contain rounded-full" />
+                </div>
               </div>
             </Link>
             <h2 className="text-2xl font-bold text-slate-900">
