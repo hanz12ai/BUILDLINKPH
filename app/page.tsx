@@ -42,14 +42,17 @@ export default function Home() {
       <Navbar activePage="home" />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50 via-white to-white relative pb-20 pt-16 lg:pt-28">
+      <section className="bg-[#1e293b] relative pb-20 pt-16 lg:pt-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-indigo-950 mb-6 tracking-tight leading-tight">
-            Find the Right Engineer. <br className="hidden md:inline" />
-            <span className="text-blue-600">Build with Confidence.</span>
+          <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-slate-700 bg-slate-800/50 text-sm font-medium text-slate-300">
+            A Project by BuildSync Co.
+          </div>
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+            Find. Estimate.<br className="hidden md:inline" />
+            <span className="text-blue-500"> Build Smart.</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
-            The premier job marketplace exclusively for civil engineers in the Philippines. Whether you are building from the ground up or designing the future.
+          <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+            The modern platform empowering construction planning. Connect with engineers, estimate costs, and streamline your civil projects seamlessly.
           </p>
 
           {/* Role-aware CTA buttons */}
@@ -241,17 +244,65 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Us Section */}
+      <section className="bg-blue-50/50 py-24 border-t border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+          <div className="md:w-1/2">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-1 bg-blue-600"></div>
+              <span className="text-blue-600 font-bold tracking-widest text-sm uppercase">About Us</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-indigo-950 mb-6">
+              About <span className="text-blue-600">BuildSync Co.</span>
+            </h2>
+            <div className="text-slate-600 space-y-4 text-lg leading-relaxed">
+              <p>
+                BuildSync Co. is a technology-driven company dedicated to creating digital solutions for the construction and engineering sectors. By integrating professional networks, planning tools, and informational resources into user-friendly platforms, the company aims to simplify project coordination and improve efficiency. Recognizing the challenges many face in accessing reliable guidance during early construction stages, BuildSync Co. established BuildLinkPH to connect users with qualified professionals, offer preliminary project estimation tools, and provide structured construction knowledge.
+              </p>
+              <p>
+                The company emphasizes reliability, collaboration, and innovation, fostering connections between project owners, engineers, contractors, and suppliers for more coordinated planning and service delivery. Through continuous development of digital solutions, BuildSync Co. strives to enhance transparency, accessibility, and sustainability in the construction industry, helping both professionals and clients manage projects more efficiently and responsibly.
+              </p>
+            </div>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <div className="text-blue-600 mb-2"><MapPin size={24} /></div>
+                <h4 className="font-bold text-slate-900">Accessibility</h4>
+                <p className="text-sm text-slate-500">Services available nationwide</p>
+              </div>
+              <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <div className="text-blue-600 mb-2"><PenTool size={24} /></div>
+                <h4 className="font-bold text-slate-900">Efficiency</h4>
+                <p className="text-sm text-slate-500">Fast connections, quick estimates</p>
+              </div>
+              <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <div className="text-blue-600 mb-2"><Building size={24} /></div>
+                <h4 className="font-bold text-slate-900">Innovation</h4>
+                <p className="text-sm text-slate-500">Modern tools for modern builds</p>
+              </div>
+            </div>
+          </div>
+          <div className="md:w-1/2 flex justify-center relative">
+            <div className="relative w-full max-w-md aspect-square bg-slate-100 rounded-full flex items-center justify-center shadow-xl border-8 border-white overflow-hidden">
+              <img src="/logo.jpg" alt="BuildSync Co. Logo" className="w-full h-full object-cover mix-blend-multiply" />
+            </div>
+            <div className="absolute -bottom-6 right-0 md:-right-6 bg-indigo-950 text-white p-6 rounded-2xl shadow-2xl max-w-xs border border-indigo-800 z-10">
+              <h4 className="font-bold text-lg mb-1">BuildSync Co.</h4>
+              <p className="text-blue-300 text-sm mb-3">Est. 2024 • San Fabian, Echague, Isabela</p>
+              <p className="text-sm text-slate-300">Empowering the Philippine construction sector through technology and innovation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-indigo-950 text-slate-400 py-16 mt-auto">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="flex items-center justify-center w-10 h-10 bg-indigo-900 rounded-lg shadow-sm border border-indigo-800">
-              <span className="text-xl font-bold font-serif text-blue-500">BS</span>
-            </div>
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <img src="/logo.jpg" alt="BuildLinkPH Logo" className="w-12 h-12 object-contain" />
             <span className="text-2xl font-bold text-white tracking-tight">BuildLink<span className="text-blue-500">PH</span></span>
           </div>
           <p className="max-w-md mx-auto text-slate-300 font-medium mb-8">
-            Find the Right Engineer. Build with Confidence.
+            Find. Estimate. Build Smart.
           </p>
           <div className="border-t border-indigo-900 pt-8 text-sm flex flex-col md:flex-row justify-center gap-4">
             <p>&copy; {new Date().getFullYear()} BS CORP / BuildLinkPH. All rights reserved.</p>

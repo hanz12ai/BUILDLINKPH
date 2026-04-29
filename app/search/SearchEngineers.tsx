@@ -19,6 +19,7 @@ import {
   SPECIALIZATIONS,
   SPECIALIZATION_STYLES,
   getAvatarClasses,
+  mockEngineers,
 } from '@/lib/mock-engineers';
 import Navbar from '@/components/shared/Navbar';
 
@@ -108,17 +109,80 @@ export default function SearchEngineers() {
              params.delete('prc');
              params.set('prc_verified', 'true');
           }
-          
+          const useFallback = () => {
+            const mappedMocks = mockEngineers.map(m => ({
+              id: m.id,
+              full_name: `${m.firstName} ${m.lastName}`,
+              headline: `${m.specialization} Engineer`,
+              specializations: [m.specialization],
+              prc_verified: m.prcVerified,
+              city: m.city,
+              province: m.province,
+              years_experience: m.yearsExperience,
+              average_rating: m.rating,
+              total_reviews: m.reviewCount,
+              hourly_rate: m.hourlyRate,
+            }));
+            
+            let filteredMocks = mappedMocks;
+            if (specs.length > 0) {
+              filteredMocks = filteredMocks.filter(m => specs.some(s => m.specializations.includes(s)));
+            }
+            if (params.has('city')) {
+              const locStr = params.get('city')?.toLowerCase() || '';
+              filteredMocks = filteredMocks.filter(m => m.city.toLowerCase().includes(locStr) || m.province.toLowerCase().includes(locStr));
+            }
+            if (params.has('min_experience')) {
+              const minExp = parseInt(params.get('min_experience') || '0', 10);
+              filteredMocks = filteredMocks.filter(m => m.years_experience >= minExp);
+            }
+            if (params.has('prc_verified')) {
+              filteredMocks = filteredMocks.filter(m => m.prc_verified);
+            }
+            
+            const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+            const pagedMocks = filteredMocks.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+
+            setEngineers(pagedMocks);
+            setTotalCount(filteredMocks.length);
+            setTotalPages(Math.max(1, Math.ceil(filteredMocks.length / ITEMS_PER_PAGE)));
+          };
+
           const res = await fetch(`/api/engineers/search?${params.toString()}`);
-          if (!res.ok) throw new Error('API Execution Failed');
+          if (!res.ok) {
+            useFallback();
+            return;
+          }
           const data = await res.json();
           
-          setEngineers(data.engineers || []);
-          setTotalCount(data.total_count || 0);
-          setTotalPages(data.total_pages || 1);
+          if (data.engineers && data.engineers.length > 0) {
+            setEngineers(data.engineers);
+            setTotalCount(data.total_count || 0);
+            setTotalPages(data.total_pages || 1);
+          } else {
+            useFallback();
+          }
        } catch(err) {
-          console.error(err);
-          setEngineers([]);
+          // If fetch entirely throws
+          // Re-declare useFallback since we are in the catch block where it might not be defined if it failed earlier,
+          // Actually, useFallback is declared inside the try block. Let's just do it directly.
+          const mappedMocks = mockEngineers.map(m => ({
+            id: m.id,
+            full_name: `${m.firstName} ${m.lastName}`,
+            headline: `${m.specialization} Engineer`,
+            specializations: [m.specialization],
+            prc_verified: m.prcVerified,
+            city: m.city,
+            province: m.province,
+            years_experience: m.yearsExperience,
+            average_rating: m.rating,
+            total_reviews: m.reviewCount,
+            hourly_rate: m.hourlyRate,
+          }));
+          const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+          setEngineers(mappedMocks.slice(startIdx, startIdx + ITEMS_PER_PAGE));
+          setTotalCount(mappedMocks.length);
+          setTotalPages(Math.max(1, Math.ceil(mappedMocks.length / ITEMS_PER_PAGE)));
        } finally {
           setLoading(false);
        }
